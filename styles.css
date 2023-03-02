@@ -1,0 +1,208 @@
+*   { 
+    font-family: 'Open Sans', sans-serif;
+}
+
+html, body    {
+    margin: 0px;
+    height: 100%;
+}
+
+
+/* HUD CONTAINER */
+ .hud-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: 20%;
+    width: 100%;
+    margin-bottom: 0px;
+ }
+
+ /* HUD CONTAINER - PLAYER 1 */
+.p1-container   {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    height: 100%;
+    width: 25%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    background-color: yellow;
+    font-weight: bold;
+    font-size: 25px;
+    color: rgb(21, 124, 209);
+}
+
+ .p1-icon   {
+   justify-content: center; 
+   margin-top: 0px;
+   margin-right: 0px;
+   margin-bottom: 0px;
+   margin-left: 0px;
+   line-height: 1;
+   font-size: 40px;
+ }
+
+ .p1-wins   {
+    justify-content: center;
+    margin-top: 0px;
+ }
+
+ /* HUD CONTAINER - MESSAGE CONTAINER */
+ .message-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    height: 100%;
+    width: 50%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    font-weight: bold;
+    font-size: 35px;
+    color: rgb(56, 140, 209);
+ }
+
+ /* HUD CONTAINER - PLAYER 2 */
+ .p2-container   {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    height: 100%;
+    width: 25%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    background-color: yellow;
+    font-weight: bold;
+    font-size: 25px;
+    color: rgb(56, 140, 209);
+}
+
+ .p2-icon   {
+    justify-content: center; 
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    line-height: 1;
+    font-size: 40px;
+  }
+ 
+  .p2-wins   {
+     justify-content: center;
+     margin-top: 0px;
+  }
+
+/* TIC TAC TOE CONTAINER */
+.tic-tac-toe-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 100%;
+}
+
+/* LEFT WING DIV */
+.left-wing  {
+    width: 25%;
+    background-image: linear-gradient(yellow, red);
+}
+
+/* TIC TAC TOE GRID */
+.tic-tac-toe-grid  {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+    height: 385px;
+    width: 385px;
+    background-image: linear-gradient(180deg, rgb(249, 62, 62), rgb(228, 84, 213), rgb(56, 140, 209));
+}
+
+/* TIC TAC TOE GRID BOXES */
+.a1  {
+    height: 125px;
+    width: 125px;
+    margin-right: 2.5px;
+    margin-bottom: 5px;
+    background: rgb(255, 255, 255);
+}
+
+.a2  {
+    height: 125px;
+    width: 125px;
+    margin-top: 5px;    
+    margin-right: 2.5px;
+    margin-bottom: 5px;
+    background: rgb(255, 255, 255);
+}
+
+.a3  {
+    height: 125px;
+    width: 125px;
+    margin-top: 5px;
+    margin-right: 2.5px;
+    background: rgb(255, 255, 255);
+}
+
+.b1  {
+    height: 125px;
+    width: 125px;
+    margin-right: 2.5px;
+    margin-bottom: 5px;
+    margin-left: 2.5px;
+    background: rgb(255, 255, 255);
+}
+
+.b2  {
+    height: 125px;
+    width: 125px;
+    margin-top: 5px;
+    margin-right: 2.5px;
+    margin-bottom: 5px;
+    margin-left: 2.5px;
+    background: rgb(255, 255, 255);
+}
+
+.b3  {
+    height: 125px;
+    width: 125px;
+    margin-top: 5px;
+    margin-right: 2.5px;
+    margin-left: 2.5px;
+    background: rgb(255, 255, 255);
+}
+
+.c1  {
+    height: 125px;
+    width: 125px;
+    margin-bottom: 5px;
+    margin-left: 2.5px;
+    background: rgb(255, 255, 255);
+}
+
+.c2  {
+    height: 125px;
+    width: 125px;
+    margin-top: 5px;
+    margin-left: 2.5px;
+    margin-bottom: 5px;
+    background: rgb(255, 255, 255);
+}
+
+.c3  {
+    height: 125px;
+    width: 125px;
+    margin-top: 5px;
+    margin-left: 2.5px;
+    background: rgb(255, 255, 255);
+}
+
+
+/* RIGHT WING DIV */
+.right-wing  {
+    width: 25%;
+    background-image: linear-gradient(yellow, red);
+}
