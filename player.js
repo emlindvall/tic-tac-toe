@@ -1,15 +1,14 @@
 class Player {
-    constructor(playerNumber, token)   {
-        this.id = playerNumber;
-        this.token = token;
-        this.activeSquares = [];
+    constructor(playerDetails)   {
+        this.id = playerDetails.number;
+        this.token = playerDetails.token;
         this.wins = 0;
+        this.activeSquares = ["0", "1", "2"];
+        this.isActive = false;
     }
-    // increaseWins()   {
-    //     IF A PLAYER WINS, THEN {
-    //         this.wins = (this.wins +1);
-
-    // }
+    increaseWins(winner)   {
+        this.wins = (this.wins +1);
+        return `${winner} won! `
+    }
 }
-
-module.export = Player;
+module.exports = Player;
