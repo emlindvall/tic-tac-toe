@@ -122,7 +122,7 @@ html, body    {
 }
 
 /* TIC TAC TOE GRID BOXES */
-.a1  {
+.g0  {
     height: 125px;
     width: 125px;
     margin-right: 2.5px;
@@ -130,7 +130,7 @@ html, body    {
     background: rgb(255, 255, 255);
 }
 
-.a2  {
+.g3  {
     height: 125px;
     width: 125px;
     margin-top: 5px;    
@@ -139,7 +139,7 @@ html, body    {
     background: rgb(255, 255, 255);
 }
 
-.a3  {
+.g6  {
     height: 125px;
     width: 125px;
     margin-top: 5px;
@@ -147,7 +147,7 @@ html, body    {
     background: rgb(255, 255, 255);
 }
 
-.b1  {
+.g1  {
     height: 125px;
     width: 125px;
     margin-right: 2.5px;
@@ -156,7 +156,7 @@ html, body    {
     background: rgb(255, 255, 255);
 }
 
-.b2  {
+.g4  {
     height: 125px;
     width: 125px;
     margin-top: 5px;
@@ -166,7 +166,7 @@ html, body    {
     background: rgb(255, 255, 255);
 }
 
-.b3  {
+.g7  {
     height: 125px;
     width: 125px;
     margin-top: 5px;
@@ -175,7 +175,7 @@ html, body    {
     background: rgb(255, 255, 255);
 }
 
-.c1  {
+.g2  {
     height: 125px;
     width: 125px;
     margin-bottom: 5px;
@@ -183,7 +183,7 @@ html, body    {
     background: rgb(255, 255, 255);
 }
 
-.c2  {
+.g5  {
     height: 125px;
     width: 125px;
     margin-top: 5px;
@@ -192,7 +192,7 @@ html, body    {
     background: rgb(255, 255, 255);
 }
 
-.c3  {
+.g8  {
     height: 125px;
     width: 125px;
     margin-top: 5px;
