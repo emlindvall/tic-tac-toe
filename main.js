@@ -1,12 +1,13 @@
 // QUERY SELECTORS 
-// QUERY SELECTORS - HUD CONTAINER 
-// QUERY SELECTORS - TIC TAC TOE GRID
 var ticTacToeGrid = document.querySelector(".tic-tac-toe-grid");
 var p1Wins = document.querySelector(".p1-wins");
 var message = document.querySelector(".message");
 var p2Wins = document.querySelector(".p2-wins");
 
 // GLOBAL VARIABLES 
+var currentGame = new Game;
+// console.log(currentGame);
+// console.log(currentGame.p1);
 var tokensInPlay = ["", "", "", "", "", "", "", "", ""];
 var winningCombos = [
     ["0", "1", "2"],
@@ -18,11 +19,6 @@ var winningCombos = [
     ["0", "4", "8"],
     ["2", "4", "6"],
 ]
-
-
-var currentGame = new Game;
-// console.log(currentGame);
-// console.log(currentGame.p1);
 
 // EVENT LISTENERS 
 ticTacToeGrid.addEventListener("click", function(){updateGrid(event)});
@@ -42,9 +38,8 @@ function findActivePlayer()  {
 }
 
 function checkForDraw() {
-    if (currentGame.turnCounter === 8)  {
+    if (currentGame.turnCounter === 10)  {
         currentGame.gameState = "draw";
-        // reset();
     }
 }
 
@@ -60,10 +55,10 @@ function checkForWins()  {
             tokensInPlay[pos2] !== "" &&
             tokensInPlay[pos0] === tokensInPlay[pos1] &&
             tokensInPlay[pos1] === tokensInPlay[pos2] )  {
-                console.log(`The winning combination is ${winningCombos[i]}`)
+                // console.log(`The winning combination is ${winningCombos[i]}`)
                 currentGame.gameState = "win";
                 currentGame.winner = tokensInPlay[pos0];
-                console.log(`Aaaaaaaand the winner is: ${currentGame.winner}`)
+                // console.log(`Aaaaaaaand the winner is: ${currentGame.winner}`)
                 updateMessage();
             }
     }
@@ -80,18 +75,18 @@ function reset()  {
     for (var i = 0; i < gridFields.length; i++) {
         gridFields[i].innerText = "";
     }
+    console.log(currentGame.turnCounter);
 }
-
 
 // FUNCTIONS - DOM UPDATES 
 function updateGrid()   {
     var gridID = event.target.id;
-    console.log(gridID);
+    // console.log(gridID);
     findActivePlayer();
     tokensInPlay.splice(gridID, 1, currentGame.activeToken);
-    console.log(tokensInPlay);
+    // console.log(tokensInPlay);
     var target = document.getElementById(`${gridID}`);
-    console.log(target);
+    // console.log(target);
     if (currentGame.activeToken === "b" && target.innerText === "")    {
         target.innerText = "🍌"
         updateMessage();
@@ -103,7 +98,7 @@ function updateGrid()   {
     }
     checkForDraw();
     checkForWins();
-    // console.log(currentGame.turnCounter);
+    console.log(currentGame.turnCounter);
 }
 
 function updateMessage() {
@@ -113,6 +108,7 @@ function updateMessage() {
         message.innerText = "It's 🍌's turn";
     } else if (currentGame.gameState === "draw") {
         message.innerText === "It's a draw";
+        setTimeout(reset, 3000);
     } else if (currentGame.gameState === "win" && currentGame.activePlayer === "p1") {
         message.innerText = "there's always 💰 in the 🍌 stand";
         currentGame.p1.wins = (currentGame.p1.wins +1);
@@ -122,7 +118,7 @@ function updateMessage() {
         message.innerText = "🔥🔥 bananas flambé 🔥🔥";
         currentGame.p2.wins = (currentGame.p2.wins +1);
         p2Wins.innerText = `${currentGame.p2.wins} wins`;
-        console.log(currentGame.p2.wins);
+        // console.log(currentGame.p2.wins);
         setTimeout(reset, 3000);
     }
 }
