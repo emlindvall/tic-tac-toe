@@ -64,6 +64,11 @@ html, body    {
     color: rgb(56, 140, 209);
  }
 
+.message {
+    text-align: center;
+}
+
+
  /* HUD CONTAINER - PLAYER 2 */
  .p2-container   {
     display: flex;
@@ -113,91 +118,73 @@ html, body    {
 .tic-tac-toe-grid  {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
     margin-top: 5%;
-    height: 385px;
-    width: 385px;
+    height: 390px;
+    width: 390px;
     background-image: linear-gradient(180deg, rgb(249, 62, 62), rgb(228, 84, 213), rgb(56, 140, 209));
 }
 
 /* TIC TAC TOE GRID BOXES */
-.g0  {
+.grid {
     height: 125px;
     width: 125px;
+    background: rgb(255, 255, 255);
+    line-height: 1;
+    font-size: 115px;
+}
+
+#\31 0  {
     margin-right: 2.5px;
-    margin-bottom: 5px;
-    background: rgb(255, 255, 255);
+    margin-bottom: 2.5px;
 }
 
-.g3  {
-    height: 125px;
-    width: 125px;
-    margin-top: 5px;    
+#\31 1  {
     margin-right: 2.5px;
-    margin-bottom: 5px;
-    background: rgb(255, 255, 255);
-}
-
-.g6  {
-    height: 125px;
-    width: 125px;
-    margin-top: 5px;
-    margin-right: 2.5px;
-    background: rgb(255, 255, 255);
-}
-
-.g1  {
-    height: 125px;
-    width: 125px;
-    margin-right: 2.5px;
-    margin-bottom: 5px;
+    margin-bottom: 2.5px;
     margin-left: 2.5px;
-    background: rgb(255, 255, 255);
 }
 
-.g4  {
-    height: 125px;
-    width: 125px;
-    margin-top: 5px;
-    margin-right: 2.5px;
-    margin-bottom: 5px;
+#\31 2  {
+    margin-bottom: 2.5px;
     margin-left: 2.5px;
-    background: rgb(255, 255, 255);
 }
 
-.g7  {
-    height: 125px;
-    width: 125px;
-    margin-top: 5px;
+#\31 3  {
+    margin-top: 2.5px;
+    margin-right: 2.5px;
+    margin-bottom: 2.5px;
+}
+
+#\31 4  {
+    margin-top: 2.5px;
+    margin-right: 2.5px;
+    margin-bottom: 2.5px;
+    margin-left: 2.5px;
+}
+
+#\31 5  {
+    margin-top: 2.5px;
+    margin-bottom: 2.5px;
+    margin-left: 2.5px;
+}
+
+#\31 6  {
+    margin-top: 2.5px;
+    margin-right: 2.5px;
+}
+
+#\31 7  {
+    margin-top: 2.5px;
     margin-right: 2.5px;
     margin-left: 2.5px;
-    background: rgb(255, 255, 255);
 }
 
-.g2  {
-    height: 125px;
-    width: 125px;
-    margin-bottom: 5px;
+#\31 8  {
+    margin-top: 2.5px;
     margin-left: 2.5px;
-    background: rgb(255, 255, 255);
-}
-
-.g5  {
-    height: 125px;
-    width: 125px;
-    margin-top: 5px;
-    margin-left: 2.5px;
-    margin-bottom: 5px;
-    background: rgb(255, 255, 255);
-}
-
-.g8  {
-    height: 125px;
-    width: 125px;
-    margin-top: 5px;
-    margin-left: 2.5px;
-    background: rgb(255, 255, 255);
 }
 
 
