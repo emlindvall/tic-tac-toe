@@ -17,16 +17,7 @@ html, body    {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    height: 4%;
-    width: 100%;
-    margin-top: 10px;
-    padding-top: 5%;
-    padding-bottom: 10%;
     color: #ededed;
-    background-image: url("assets/header.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 15%;
 }
 
  /* HUD CONTAINER - PLAYER 1 */
@@ -35,16 +26,12 @@ html, body    {
     flex-direction: column;
     justify-content: start;
     align-items: center;
-    height: 100%;
     width: 25%;
-    padding-top: 2%;
-    padding-bottom: 2%;
     font-size: 40px;
 }
 
  .p1-icon   {
    justify-content: center; 
-   margin-top: 5%;
    margin-right: 0px;
    margin-bottom: 0px;
    margin-left: 0px;
@@ -61,17 +48,24 @@ html, body    {
  .message-container {
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
-    height: 100%;
     width: 50%;
-    padding-top: 10%;
-    padding-bottom: 2%;
+    padding-top: 35px;
     font-size: 40px;
  }
 
+ .header {
+    /* padding-top: 10px; */
+    height: auto;
+    max-height: 200px;
+    width: auto;
+    max-width: 200px;
+}
+
 .message {
     text-align: center;
+    margin-top: 15px;
 }
 
 
@@ -81,17 +75,13 @@ html, body    {
     flex-direction: column;
     justify-content: start;
     align-items: center;
-    height: 100%;
     width: 25%;
-    padding-top: 2%;
-    padding-bottom: 2%;
     font-size: 40px;
 
 }
 
  .p2-icon   {
     justify-content: center; 
-    margin-top: 5%;
     margin-right: 0px;
     margin-bottom: 0px;
     margin-left: 0px;
@@ -109,8 +99,7 @@ html, body    {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    height: 100%;
-    margin-top: 2.5%;
+    margin-top: 0px;
 }
 
 /* LEFT WING DIV */
@@ -119,7 +108,6 @@ html, body    {
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    height: 100%;
 }
 
 /* TIC TAC TOE GRID */
@@ -129,9 +117,9 @@ html, body    {
     flex-wrap: wrap;
     justify-content: space-between;
     align-content: space-between;
-    margin-top: 5%;
     height: 390px;
     width: 390px;
+
 }
 
 /* TIC TAC TOE GRID BOXES */
@@ -141,6 +129,7 @@ html, body    {
     background: rgba(255, 203, 139, 0.4);
     line-height: 1;
     font-size: 115px;
+    cursor: pointer;
 }
 
 #\31 0  {
@@ -198,5 +187,4 @@ html, body    {
 /* RIGHT WING DIV */
 .right-wing  {
     width: 25%;
-    height: 100%;
 }
