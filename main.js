@@ -35,49 +35,6 @@ function switchPlayer()  {
     }
 }
 
-function checkForDraw() {
-    var inPlayCounter = 0;
-    for (var i = 0; i < currentGame.tokensInPlay.length; i++)   {
-        if (currentGame.tokensInPlay[i] !== "") {
-            inPlayCounter = (inPlayCounter +1);
-        }
-    }
-    if (inPlayCounter === 9 && currentGame.gameState !== "win")    {
-        currentGame.gameState = "draw";
-        updateMessage();
-    }
-}
-
-function checkForWin()  {
-    for (var i = 0; i < winningCombos.length; i++)  {
-        var pos0 = winningCombos[i][0];
-        var pos1 = winningCombos[i][1];
-        var pos2 = winningCombos[i][2];
-        if (currentGame.tokensInPlay[pos0] !== "" &&
-            currentGame.tokensInPlay[pos1] !== "" &&
-            currentGame.tokensInPlay[pos2] !== "" &&
-            currentGame.tokensInPlay[pos0] === currentGame.tokensInPlay[pos1] &&
-            currentGame.tokensInPlay[pos1] === currentGame.tokensInPlay[pos2] )  {
-                currentGame.gameState = "win";
-                currentGame.winner = currentGame.tokensInPlay[pos0];
-                updateMessage();
-            }
-    }
-}
-
-function reset()  {
-    currentGame.tokensInPlay = ["", "", "", "", "", "", "", "", ""];
-    currentGame.gameState = "in progress";
-    currentGame.activeToken = currentGame.activePlayer.token;
-    message.innerHTML = `It's ${currentGame.activeToken}'s turn`;
-    var gridFields = document.querySelectorAll(".grid");
-    for (var i = 0; i < gridFields.length; i++) {
-        gridFields[i].innerText = "";
-    }
-    header.src = "assets/header.png";
-    updateWins();
-}
-
 function updateGrid()   {
     var gridID = event.target.id;
     var target = document.getElementById(`${gridID}`);
@@ -117,6 +74,36 @@ function updateMessage()    {
     }
 }
 
+function checkForDraw() {
+    var inPlayCounter = 0;
+    for (var i = 0; i < currentGame.tokensInPlay.length; i++)   {
+        if (currentGame.tokensInPlay[i] !== "") {
+            inPlayCounter = (inPlayCounter +1);
+        }
+    }
+    if (inPlayCounter === 9 && currentGame.gameState !== "win")    {
+        currentGame.gameState = "draw";
+        updateMessage();
+    }
+}
+
+function checkForWin()  {
+    for (var i = 0; i < winningCombos.length; i++)  {
+        var pos0 = winningCombos[i][0];
+        var pos1 = winningCombos[i][1];
+        var pos2 = winningCombos[i][2];
+        if (currentGame.tokensInPlay[pos0] !== "" &&
+            currentGame.tokensInPlay[pos1] !== "" &&
+            currentGame.tokensInPlay[pos2] !== "" &&
+            currentGame.tokensInPlay[pos0] === currentGame.tokensInPlay[pos1] &&
+            currentGame.tokensInPlay[pos1] === currentGame.tokensInPlay[pos2] )  {
+                currentGame.gameState = "win";
+                currentGame.winner = currentGame.tokensInPlay[pos0];
+                updateMessage();
+            }
+    }
+}
+
 function updateWins()   {
     var storage = JSON.parse(localStorage.getItem("storage"));
     p1Wins.innerText = `${storage.currentGame.p1.wins} wins`;
@@ -147,4 +134,17 @@ function toggleAudio()  {
         currentGame.audio = "true";
         audioToggle.src = "assets/audio-on.png";
     }
+}
+
+function reset()  {
+    currentGame.tokensInPlay = ["", "", "", "", "", "", "", "", ""];
+    currentGame.gameState = "in progress";
+    currentGame.activeToken = currentGame.activePlayer.token;
+    message.innerHTML = `It's ${currentGame.activeToken}'s turn`;
+    var gridFields = document.querySelectorAll(".grid");
+    for (var i = 0; i < gridFields.length; i++) {
+        gridFields[i].innerText = "";
+    }
+    header.src = "assets/header.png";
+    updateWins();
 }
