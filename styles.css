@@ -1,10 +1,14 @@
 *   { 
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Lato', sans-serif;
+
 }
 
 html, body    {
     margin: 0px;
     height: 100%;
+    font-weight: bold;
+    background-image: url("assets/background.jpeg");
+    background-size: cover;
 }
 
 
@@ -13,10 +17,17 @@ html, body    {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    height: 20%;
+    height: 4%;
     width: 100%;
-    margin-bottom: 0px;
- }
+    margin-top: 10px;
+    padding-top: 5%;
+    padding-bottom: 10%;
+    color: #ededed;
+    background-image: url("assets/header.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 15%;
+}
 
  /* HUD CONTAINER - PLAYER 1 */
 .p1-container   {
@@ -26,22 +37,19 @@ html, body    {
     align-items: center;
     height: 100%;
     width: 25%;
-    padding-top: 5%;
-    padding-bottom: 5%;
-    background-color: yellow;
-    font-weight: bold;
-    font-size: 25px;
-    color: rgb(21, 124, 209);
+    padding-top: 2%;
+    padding-bottom: 2%;
+    font-size: 40px;
 }
 
  .p1-icon   {
    justify-content: center; 
-   margin-top: 0px;
+   margin-top: 5%;
    margin-right: 0px;
    margin-bottom: 0px;
    margin-left: 0px;
    line-height: 1;
-   font-size: 40px;
+   font-size: 60px;
  }
 
  .p1-wins   {
@@ -57,11 +65,9 @@ html, body    {
     align-items: center;
     height: 100%;
     width: 50%;
-    padding-top: 5%;
-    padding-bottom: 5%;
-    font-weight: bold;
-    font-size: 35px;
-    color: rgb(56, 140, 209);
+    padding-top: 10%;
+    padding-bottom: 2%;
+    font-size: 40px;
  }
 
 .message {
@@ -77,22 +83,20 @@ html, body    {
     align-items: center;
     height: 100%;
     width: 25%;
-    padding-top: 5%;
-    padding-bottom: 5%;
-    background-color: yellow;
-    font-weight: bold;
-    font-size: 25px;
-    color: rgb(56, 140, 209);
+    padding-top: 2%;
+    padding-bottom: 2%;
+    font-size: 40px;
+
 }
 
  .p2-icon   {
     justify-content: center; 
-    margin-top: 0px;
+    margin-top: 5%;
     margin-right: 0px;
     margin-bottom: 0px;
     margin-left: 0px;
     line-height: 1;
-    font-size: 40px;
+    font-size: 60px;
   }
  
   .p2-wins   {
@@ -106,12 +110,16 @@ html, body    {
     flex-direction: row;
     justify-content: space-between;
     height: 100%;
+    margin-top: 2.5%;
 }
 
 /* LEFT WING DIV */
 .left-wing  {
     width: 25%;
-    background-image: linear-gradient(yellow, red);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
 }
 
 /* TIC TAC TOE GRID */
@@ -124,14 +132,13 @@ html, body    {
     margin-top: 5%;
     height: 390px;
     width: 390px;
-    background-image: linear-gradient(180deg, rgb(249, 62, 62), rgb(228, 84, 213), rgb(56, 140, 209));
 }
 
 /* TIC TAC TOE GRID BOXES */
 .grid {
     height: 125px;
     width: 125px;
-    background: rgb(255, 255, 255);
+    background: rgba(255, 203, 139, 0.4);
     line-height: 1;
     font-size: 115px;
 }
@@ -191,5 +198,5 @@ html, body    {
 /* RIGHT WING DIV */
 .right-wing  {
     width: 25%;
-    background-image: linear-gradient(yellow, red);
+    height: 100%;
 }
