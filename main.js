@@ -66,7 +66,6 @@ function reset()  {
     tokensInPlay = ["", "", "", "", "", "", "", "", ""];
     currentGame.gameState = "in progress";
     currentGame.activeToken = currentGame.activePlayer.token;
-    console.log(currentGame.activePlayer.token);
     message.innerHTML = `It's ${currentGame.activeToken}'s turn`;
     var gridFields = document.querySelectorAll(".grid");
     for (var i = 0; i < gridFields.length; i++) {
@@ -75,39 +74,37 @@ function reset()  {
 }
 
 function updateGrid()   {
-    if (currentGame.gameState === "in progress")    {
-        var gridID = event.target.id;
-        var target = document.getElementById(`${gridID}`);
-        tokensInPlay.splice(gridID, 1, currentGame.activePlayer.placeholder);
-        if (target.innerText === "")    {
+    var gridID = event.target.id;
+    var target = document.getElementById(`${gridID}`);
+    if (currentGame.gameState === "in progress" && target.innerText === "")    {
+            tokensInPlay.splice(gridID, 1, currentGame.activePlayer.placeholder);
             target.innerText = currentGame.activePlayer.token;
             updateMessage();
             switchPlayer();
             checkForWin();
             checkForDraw();
-        }
     }
 }
-
 
 function updateMessage()    {
     if (currentGame.gameState === "draw") {
         message.innerText = "It's a draw!";
-        setTimeout(reset, 3000);
+        setTimeout(reset, 4000);
+        document.getElementById("theme-draw").play();
     } else if (currentGame.gameState === "win" && currentGame.activePlayer === currentGame.p2) {
         header.src = "assets/header-p1-win.png";
         message.innerText = currentGame.p1.winMessage;
         currentGame.p1.wins = (currentGame.p1.wins +1);
         p1Wins.innerText = `${currentGame.p1.wins} wins`;
         setTimeout(reset, 6000);
-        document.getElementById("theme").play();
+        document.getElementById("theme-win").play();
     } else if (currentGame.gameState === "win" && currentGame.activePlayer === currentGame.p1){
         header.src = "assets/header-p2-win.png";
         message.innerText = currentGame.p2.winMessage;
         currentGame.p2.wins = (currentGame.p2.wins +1);
         p2Wins.innerText = `${currentGame.p2.wins} wins`;
         setTimeout(reset, 6000);
-        document.getElementById("theme").play();
+        document.getElementById("theme-win").play();
     } else if (currentGame.gameState === "in progress" && currentGame.activePlayer === currentGame.p1)  {
         message.innerText = "It's 🔥's turn";
     } else if (currentGame.gameState === "in progress" && currentGame.activePlayer === currentGame.p2) {
