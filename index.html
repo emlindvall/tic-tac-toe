@@ -9,7 +9,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
         <title>Tic Tac Toe</title>
     </head>
-    <body>
+    <body onload="reset()">
         <audio id="themeWin" src="assets/theme-win.mp3"></audio>
         <audio id="themeDraw" src="assets/theme-draw.mp3"></audio>
         <article class="hud-container">
@@ -41,8 +41,9 @@
             </section>
             <div class="right-wing"></div>
         </article>
-        <article class="audio-container">
+        <article class="options-container">
             <img class="audio-toggle" src="assets/audio-on.png" alt="audio-toggle">
+            <button class="clear-button">clear wins</button>
         </article>
         <script type="text/javascript" src="player.js"></script>
         <script type="text/javascript" src="game.js"></script>

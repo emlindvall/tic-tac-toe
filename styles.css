@@ -1,5 +1,6 @@
 *   { 
     font-family: 'Lato', sans-serif;
+    color: #ededed;
 
 }
 
@@ -17,7 +18,7 @@ html, body    {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    color: #ededed;
+    /* color: #ededed; */
 }
 
  /* HUD CONTAINER - PLAYER 1 */
@@ -51,7 +52,7 @@ html, body    {
     justify-content: center;
     align-items: center;
     width: 50%;
-    padding-top: 35px;
+    padding-top: 50px;
     font-size: 40px;
  }
 
@@ -126,7 +127,7 @@ html, body    {
 .grid {
     height: 125px;
     width: 125px;
-    background: rgba(255, 203, 139, 0.4);
+    background: rgba(255, 255, 255, 0.3);
     line-height: 1;
     font-size: 115px;
     cursor: pointer;
@@ -187,4 +188,32 @@ html, body    {
 /* RIGHT WING DIV */
 .right-wing  {
     width: 25%;
+}
+
+
+/* AUDIO CONTAINER  */
+.options-container    {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: left;
+    margin-left: 15px;
+}
+
+.audio-toggle   {
+    margin-bottom: 15px;
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+}
+
+.clear-button {
+    margin-bottom: 15px;
+    height: 30px;
+    width: 100px;
+    background-color: #ededed;
+    border-radius: 10px;
+    border: none;
+    color: rgb(243, 104, 19);
+    cursor: pointer;
 }
