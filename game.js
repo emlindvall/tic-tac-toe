@@ -4,6 +4,8 @@ class Game {
         this.p2 = new Player({number: 2, token: "🔥", placeholder: "f", winMessage: "Bananas flambé!"});
         this.gameState = "in progress";
         this.activePlayer = this.p1;
+        this.tokensInPlay = ["", "", "", "", "", "", "", "", ""];
         this.winner = "";
+        this.audio = "true";
     }
 }
