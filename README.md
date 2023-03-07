@@ -2,9 +2,9 @@
 
 Did you know that the game of tic-tac-toe traces its origins back to ancient Egypt? The oldest-known game dates to right around 1300 BCE, and was played on a ceramic gameboard. Similar three-in-a-row games have since been played by the Romans, the Mayans, the Ancestral Puebloans, in Meiji Japan, and more recently, by bored gradeschoolers and aspiring software developers like myself. Instead of Xs and Os, this reinterpretation of tic tac toe pays homage to one of my favorite sitcoms, Arrested Development, by utilizing 🍌 tokens and 🔥 tokens to mark players' places on a 3x3 grid. To win, you'll need to get three identical tokens in a row horizontally, vertically, or diagonally. 
 
-![Mayan Tic-Tac-Toe](assets/ttt-mayan.jpg "Mayan Tic-Tac-Toe") 
-![Puebloan Tic-Tac-Toe](assets/ttt-puebloan.jpg "Puebloan Tic-Tac-Toe") 
-![My Tic-Tac-Toe](assets/ttt-me.png "My Tic-Tac-Toe") 
+![Mayan Tic-Tac-Toe](https://dd.ci/file/b1958fd6841031b970242.jpg "Mayan Tic-Tac-Toe") 
+![Puebloan Tic-Tac-Toe](https://dd.ci/file/4ea55907764e43c8c1c5a.jpg "Puebloan Tic-Tac-Toe") 
+![My Tic-Tac-Toe](https://dd.ci/file/cef2316fb2ea57a725686.png "My Tic-Tac-Toe") 
 
 ## Installation
 
