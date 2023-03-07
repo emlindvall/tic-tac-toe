@@ -4,10 +4,10 @@ var header = document.querySelector(".header");
 var message = document.querySelector(".message");
 var p2Wins = document.querySelector(".p2-wins");
 var ticTacToeGrid = document.querySelector(".tic-tac-toe-grid");
+var audioToggle = document.querySelector(".audio-toggle");
 
 // GLOBAL VARIABLES 
 var currentGame = new Game;
-var tokensInPlay = ["", "", "", "", "", "", "", "", ""];
 var winningCombos = [
     ["0", "1", "2"],
     ["3", "4", "5"],
@@ -21,6 +21,7 @@ var winningCombos = [
 
 // EVENT LISTENERS 
 ticTacToeGrid.addEventListener("click", function(){updateGrid(event)});
+audioToggle.addEventListener("click", toggleAudio);
 
 // FUNCTIONS
 function switchPlayer()  {
@@ -33,8 +34,8 @@ function switchPlayer()  {
 
 function checkForDraw() {
     var inPlayCounter = 0;
-    for (var i = 0; i < tokensInPlay.length; i++)   {
-        if (tokensInPlay[i] !== "") {
+    for (var i = 0; i < currentGame.tokensInPlay.length; i++)   {
+        if (currentGame.tokensInPlay[i] !== "") {
             inPlayCounter = (inPlayCounter +1);
         }
     }
@@ -49,13 +50,13 @@ function checkForWin()  {
         var pos0 = winningCombos[i][0];
         var pos1 = winningCombos[i][1];
         var pos2 = winningCombos[i][2];
-        if (tokensInPlay[pos0] !== "" &&
-            tokensInPlay[pos1] !== "" &&
-            tokensInPlay[pos2] !== "" &&
-            tokensInPlay[pos0] === tokensInPlay[pos1] &&
-            tokensInPlay[pos1] === tokensInPlay[pos2] )  {
+        if (currentGame.tokensInPlay[pos0] !== "" &&
+            currentGame.tokensInPlay[pos1] !== "" &&
+            currentGame.tokensInPlay[pos2] !== "" &&
+            currentGame.tokensInPlay[pos0] === currentGame.tokensInPlay[pos1] &&
+            currentGame.tokensInPlay[pos1] === currentGame.tokensInPlay[pos2] )  {
                 currentGame.gameState = "win";
-                currentGame.winner = tokensInPlay[pos0];
+                currentGame.winner = currentGame.tokensInPlay[pos0];
                 updateMessage();
             }
     }
@@ -63,7 +64,7 @@ function checkForWin()  {
 
 function reset()  {
     header.src = "assets/header.png";
-    tokensInPlay = ["", "", "", "", "", "", "", "", ""];
+    currentGame.tokensInPlay = ["", "", "", "", "", "", "", "", ""];
     currentGame.gameState = "in progress";
     currentGame.activeToken = currentGame.activePlayer.token;
     message.innerHTML = `It's ${currentGame.activeToken}'s turn`;
@@ -77,7 +78,7 @@ function updateGrid()   {
     var gridID = event.target.id;
     var target = document.getElementById(`${gridID}`);
     if (currentGame.gameState === "in progress" && target.innerText === "")    {
-            tokensInPlay.splice(gridID, 1, currentGame.activePlayer.placeholder);
+            currentGame.tokensInPlay.splice(gridID, 1, currentGame.activePlayer.placeholder);
             target.innerText = currentGame.activePlayer.token;
             updateMessage();
             switchPlayer();
@@ -90,24 +91,42 @@ function updateMessage()    {
     if (currentGame.gameState === "draw") {
         message.innerText = "It's a draw!";
         setTimeout(reset, 4000);
-        document.getElementById("theme-draw").play();
+       playTheme();
     } else if (currentGame.gameState === "win" && currentGame.activePlayer === currentGame.p2) {
-        header.src = "assets/header-p1-win.png";
-        message.innerText = currentGame.p1.winMessage;
         currentGame.p1.wins = (currentGame.p1.wins +1);
         p1Wins.innerText = `${currentGame.p1.wins} wins`;
+        header.src = "assets/header-p1-win.png";
+        message.innerText = currentGame.p1.winMessage;
         setTimeout(reset, 6000);
-        document.getElementById("theme-win").play();
+        playTheme();
     } else if (currentGame.gameState === "win" && currentGame.activePlayer === currentGame.p1){
-        header.src = "assets/header-p2-win.png";
-        message.innerText = currentGame.p2.winMessage;
         currentGame.p2.wins = (currentGame.p2.wins +1);
         p2Wins.innerText = `${currentGame.p2.wins} wins`;
+        header.src = "assets/header-p2-win.png";
+        message.innerText = currentGame.p2.winMessage;
         setTimeout(reset, 6000);
-        document.getElementById("theme-win").play();
+        playTheme();
     } else if (currentGame.gameState === "in progress" && currentGame.activePlayer === currentGame.p1)  {
         message.innerText = "It's 🔥's turn";
     } else if (currentGame.gameState === "in progress" && currentGame.activePlayer === currentGame.p2) {
         message.innerText = "It's 🍌's turn";
+    }
+}
+
+function playTheme()    {
+    if (currentGame.audio === "true" && currentGame.gameState === "win") {
+        document.getElementById("themeWin").play();
+    } else if (currentGame.audio === "true" && currentGame.gameState === "draw")    {
+        document.getElementById("themeDraw").play();
+    }
+}
+
+function toggleAudio()  {
+    if (currentGame.audio === "true")   {
+        currentGame.audio = "false";
+        audioToggle.src = "assets/audio-off.png";
+    } else {
+        currentGame.audio = "true";
+        audioToggle.src = "assets/audio-on.png";
     }
 }
