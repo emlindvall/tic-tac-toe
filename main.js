@@ -5,8 +5,10 @@ var message = document.querySelector(".message");
 var p2Wins = document.querySelector(".p2-wins");
 var ticTacToeGrid = document.querySelector(".tic-tac-toe-grid");
 var audioToggle = document.querySelector(".audio-toggle");
+var clearButton = document.querySelector(".clear-button");
 
 // GLOBAL VARIABLES 
+
 var currentGame = new Game;
 var winningCombos = [
     ["0", "1", "2"],
@@ -22,6 +24,7 @@ var winningCombos = [
 // EVENT LISTENERS 
 ticTacToeGrid.addEventListener("click", function(){updateGrid(event)});
 audioToggle.addEventListener("click", toggleAudio);
+clearButton.addEventListener("click", clearWins);
 
 // FUNCTIONS
 function switchPlayer()  {
@@ -63,7 +66,6 @@ function checkForWin()  {
 }
 
 function reset()  {
-    header.src = "assets/header.png";
     currentGame.tokensInPlay = ["", "", "", "", "", "", "", "", ""];
     currentGame.gameState = "in progress";
     currentGame.activeToken = currentGame.activePlayer.token;
@@ -72,6 +74,8 @@ function reset()  {
     for (var i = 0; i < gridFields.length; i++) {
         gridFields[i].innerText = "";
     }
+    header.src = "assets/header.png";
+    updateWins();
 }
 
 function updateGrid()   {
@@ -91,19 +95,19 @@ function updateMessage()    {
     if (currentGame.gameState === "draw") {
         message.innerText = "It's a draw!";
         setTimeout(reset, 4000);
-       playTheme();
+        playTheme();
     } else if (currentGame.gameState === "win" && currentGame.activePlayer === currentGame.p2) {
         currentGame.p1.wins = (currentGame.p1.wins +1);
-        p1Wins.innerText = `${currentGame.p1.wins} wins`;
         header.src = "assets/header-p1-win.png";
         message.innerText = currentGame.p1.winMessage;
+        window.localStorage.setItem("storage", JSON.stringify({currentGame}));
         setTimeout(reset, 6000);
         playTheme();
     } else if (currentGame.gameState === "win" && currentGame.activePlayer === currentGame.p1){
         currentGame.p2.wins = (currentGame.p2.wins +1);
-        p2Wins.innerText = `${currentGame.p2.wins} wins`;
         header.src = "assets/header-p2-win.png";
         message.innerText = currentGame.p2.winMessage;
+        window.localStorage.setItem("storage", JSON.stringify({currentGame}));
         setTimeout(reset, 6000);
         playTheme();
     } else if (currentGame.gameState === "in progress" && currentGame.activePlayer === currentGame.p1)  {
@@ -111,6 +115,20 @@ function updateMessage()    {
     } else if (currentGame.gameState === "in progress" && currentGame.activePlayer === currentGame.p2) {
         message.innerText = "It's 🍌's turn";
     }
+}
+
+function updateWins()   {
+    var storage = JSON.parse(localStorage.getItem("storage"));
+    p1Wins.innerText = `${storage.currentGame.p1.wins} wins`;
+    p2Wins.innerText = `${storage.currentGame.p2.wins} wins`;
+}
+
+function clearWins()    {
+    currentGame.p1.wins = 0;
+    currentGame.p2.wins = 0;
+    window.localStorage.setItem("storage", JSON.stringify({currentGame}));
+    updateWins();
+    reset();
 }
 
 function playTheme()    {
