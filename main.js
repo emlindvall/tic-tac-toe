@@ -1,6 +1,6 @@
 // QUERY SELECTORS 
-var hudContainer = document.querySelector(".hud-container");
 var p1Wins = document.querySelector(".p1-wins");
+var header = document.querySelector(".header");
 var message = document.querySelector(".message");
 var p2Wins = document.querySelector(".p2-wins");
 var ticTacToeGrid = document.querySelector(".tic-tac-toe-grid");
@@ -62,7 +62,7 @@ function checkForWin()  {
 }
 
 function reset()  {
-    hudContainer.style.backgroundImage = "url(assets/header.png)";
+    header.src = "assets/header.png";
     tokensInPlay = ["", "", "", "", "", "", "", "", ""];
     currentGame.gameState = "in progress";
     currentGame.activeToken = currentGame.activePlayer.token;
@@ -95,17 +95,19 @@ function updateMessage()    {
         message.innerText = "It's a draw!";
         setTimeout(reset, 3000);
     } else if (currentGame.gameState === "win" && currentGame.activePlayer === currentGame.p2) {
-        hudContainer.style.backgroundImage = "url(assets/header-p1-win.png)";
+        header.src = "assets/header-p1-win.png";
         message.innerText = currentGame.p1.winMessage;
         currentGame.p1.wins = (currentGame.p1.wins +1);
         p1Wins.innerText = `${currentGame.p1.wins} wins`;
-        setTimeout(reset, 3000);
+        setTimeout(reset, 6000);
+        document.getElementById("theme").play();
     } else if (currentGame.gameState === "win" && currentGame.activePlayer === currentGame.p1){
-        hudContainer.style.backgroundImage = "url(assets/header-p2-win.png)";
+        header.src = "assets/header-p2-win.png";
         message.innerText = currentGame.p2.winMessage;
         currentGame.p2.wins = (currentGame.p2.wins +1);
         p2Wins.innerText = `${currentGame.p2.wins} wins`;
-        setTimeout(reset, 3000);
+        setTimeout(reset, 6000);
+        document.getElementById("theme").play();
     } else if (currentGame.gameState === "in progress" && currentGame.activePlayer === currentGame.p1)  {
         message.innerText = "It's 🔥's turn";
     } else if (currentGame.gameState === "in progress" && currentGame.activePlayer === currentGame.p2) {
