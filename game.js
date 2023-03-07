@@ -1,11 +1,9 @@
 class Game {
     constructor()  {
-        this.p1 = new Player({number: 1, token: "🍌"});
-        this.p2 = new Player({number: 2, token: "🔥"});
+        this.p1 = new Player({number: 1, token: "🍌", placeholder: "b", winMessage: "There's always money in the banana stand!"});
+        this.p2 = new Player({number: 2, token: "🔥", placeholder: "f", winMessage: "Bananas flambé!"});
         this.gameState = "in progress";
-        this.turnCounter = 1;
-        this.activePlayer = "";
-        this.activeToken = "";
+        this.activePlayer = this.p1;
         this.winner = "";
     }
 }
